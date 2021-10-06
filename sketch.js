@@ -28,10 +28,10 @@ var options = {
 
   //create player body
   playerBase= Bodies.rectangle(200.350,180,150,options);
-  World.add(world,palyer);
+  World.add(world,playerBase);
  
-  palyer=Bodies.rectangle(250,playerBase.position.y - 160,50,180,options);
-World.add(world,palyer)
+  player=Bodies.rectangle(250,playerBase.position.y - 160,50,180,options);
+World.add(world,player)
 }
 
 function draw() {
@@ -41,7 +41,7 @@ function draw() {
   Engine.update(engine); 
   image(baseimage,playerBase.position.x,playerBase.position.y,180,150)
   //show the playerbase image using image() function
-  image(playerimage,palyer.position.x,player.position.y,50,180)
+  image(playerimage,player.position.x,player.position.y,50,180)
 
   Engine.update(engine);
 
