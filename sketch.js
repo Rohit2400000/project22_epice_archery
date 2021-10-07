@@ -5,8 +5,9 @@ const Constraint = Matter.Constraint;
 
 var engine, world;
 var canvas;
-var palyer, playerBase, playerArcher;
-var baseimage;
+var player, playerBase;
+
+
 
 function preload() {
   backgroundImg = loadImage("./assets/background.png");
@@ -19,31 +20,26 @@ function setup() {
 
   engine = Engine.create();
   world = engine.world;
+
   angleMode(DEGREES);
 
-  //create player base body
-var options = {
-  isStatic: true
-};
+  var options = {
+    isStatic: true
+  };
 
-  //create player body
-  playerBase= Bodies.rectangle(200.350,180,150,options);
-  World.add(world,playerBase);
- 
-  player=Bodies.rectangle(250,playerBase.position.y - 160,50,180,options);
-World.add(world,player)
+  playerBase = Bodies.rectangle(200, 350, 180, 150, options);
+  World.add(world, playerBase);
+
+  player = Bodies.rectangle(250, playerBase.position.y - 160, 50, 180, options);
+  World.add(world,player)
 }
 
 function draw() {
   background(backgroundImg);
 
-  //show the player image using image() function
-  Engine.update(engine); 
-  image(baseimage,playerBase.position.x,playerBase.position.y,180,150)
-  //show the playerbase image using image() function
-  image(playerimage,player.position.x,player.position.y,50,180)
-
   Engine.update(engine);
+  image(baseimage,playerBase.position.x,playerBase.position.y,180,150)
+  image(playerimage,player.position.x,player.position.y,50,180)
 
   // Title
   fill("#FFFF");
